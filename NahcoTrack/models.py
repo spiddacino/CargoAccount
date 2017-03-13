@@ -86,7 +86,7 @@ class AgentAWBList(models.Model):
 
 class PaymentUtilizations(models.Model):
     awb_on_list = models.ForeignKey(AgentAWBList)
-    invoice_amount = models.FloatField(default=0.00)
+    invoice_amount = models.DecimalField(decimal_places=2,max_digits=10)
     authorized_by = models.ForeignKey(Staff)
 
 
@@ -98,7 +98,7 @@ class Payments(models.Model):
         ('TR', 'Transfer')
     )
     agency = models.ForeignKey(AgencyDetail)
-    payment = models.FloatField(default=0.00)
+    payment = models.DecimalField(decimal_places=2,max_digits=10)
     payment_date = models.DateTimeField()
     payment_mode = models.CharField(max_length=2, choices=PAYMENTMODE)
     teller_no = models.CharField(max_length=10)
@@ -112,7 +112,7 @@ class TellerData(models.Model):
     bank = models.ForeignKey(Bank)
     agency = models.ForeignKey(AgencyDetail)  # used specially for MOU/credit agents
     teller_no = models.CharField(max_length=10)
-    teller_amount = models.FloatField(default=0.00)
+    teller_amount = models.DecimalField(decimal_places=2,max_digits=10)
     authorized_by = models.ForeignKey(Staff)
 
 
@@ -124,9 +124,9 @@ class DailySales(models.Model):
     Location = models.ForeignKey(Location)
     sales_date = models.DateTimeField()
     sales_type = models.CharField(max_length=2,choices=SALESTYPE)
-    net_sales = models.FloatField(default=0.00)
-    vat = models.FloatField(default=0.00)
-    total_stamp = models.FloatField(default=0.00)
+    net_sales = models.DecimalField(decimal_places=2,max_digits=10)
+    vat = models.DecimalField(decimal_places=2,max_digits=10)
+    total_stamp = models.DecimalField(decimal_places=2,max_digits=10)
 
 class EventActions(models.Model):
     event_code = models.CharField(max_length=3)
