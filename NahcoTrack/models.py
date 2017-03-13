@@ -51,8 +51,8 @@ class AgencyDetail(models.Model):
     )
     agency_name = models.CharField(max_length=50)
     agency_type = models.CharField(max_length=2, choices=AGENCY_TYPE)
-    agency_minimum_balance = models.FloatField(default=1000000.00)
-    agency_current_balance = models.FloatField(default=0.00)
+    agency_minimum_balance = models.DecimalField(decimal_places=2,max_digits=10)
+    agency_current_balance = models.DecimalField(decimal_places=2,max_digits=10)
 
     def __unicode__(self):
         return self.agency_name
