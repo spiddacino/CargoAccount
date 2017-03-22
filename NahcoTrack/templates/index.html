@@ -1,0 +1,17 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<h1>Nahco AWB Tracker Home</h1>
+<p>Welcome to <em>NahcoTrack</em>, a very simple application which enables centralization of all AWBs as regards our MOU and Credit Customer.</p>
+<h2>Dynamic content</h2>
+
+  <p>The library has the following record counts:</p>
+  <ul>
+    <li><strong>Agents:</strong> {{ num_agents }}</li>
+    <li><strong>Locations:</strong> {{ num_locations }}</li>
+    <li><strong>Payments:</strong> {{ num_payments }}</li>
+    <li><strong>Banks Available:</strong> {{ num_banks }}</li>
+    <li><strong>Not fully Utilized Payments:</strong> {{ num_non_fully_utilized_payments }}</li>
+  </ul>
+{% endblock %}
+

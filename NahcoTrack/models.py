@@ -157,6 +157,7 @@ class Payments(models.Model):
     payment_date = models.DateField()
     payment_mode = models.CharField(max_length=2, choices=PAYMENTMODE, default='Cash')
     teller_no = models.CharField(max_length=11)
+    payment_utilized=models.BooleanField(default=False)
     #authorized_by = models.ForeignKey(Staff)
 
     def __unicode__(self):
