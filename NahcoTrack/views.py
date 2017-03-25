@@ -1,4 +1,5 @@
 from django.shortcuts import get_object_or_404, render
+from django.views import generic
 
 from .models import AgencyDetail, AgentAWBList, Location, Bank, Payments
 
@@ -17,6 +18,15 @@ def index(request):
     num_non_fully_utilized_payments=Payments.objects.filter(payment_utilized=False).count()
 
     return render(request, 'index.html', context={'num_agents': num_agents, 'num_locations': num_locations,'num_banks': num_banks, 'num_payments': num_payments, 'num_non_fully_utilized_payments': num_non_fully_utilized_payments})
+
+
+# class AgencyListView(generic.ListView):
+#      model = AgencyDetail
+#
+#
+# class AgencyDetailView(generic.DetailView):
+#     model = AgencyDetail
+
 
 # def index(request):
 #     agency_list = AgencyDetail.objects.order_by

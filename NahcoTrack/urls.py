@@ -4,7 +4,7 @@ from . import views
 
 
 urlpatterns = [
-    url(r'^$',views.index, name='index'),
-    #url(r'^(?P<AgencyDetail_id>[0-9]+)/$', views.awblist, name='awblist'),
-    #url('^accounts/', include('django.contrib.auth.urls')),
+    url(r'^$', views.index, name='index'),
+    # url(r'^agencies/$', views.AgencyListView.as_view(), name='Agencies'),
+    # url(r'^agencies/(?P<pk>\d+)/$', views.AgencyDetailView.as_view(), name='agency-detail'),
 ]
